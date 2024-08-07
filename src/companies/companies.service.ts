@@ -10,11 +10,7 @@ export class CompaniesService {
   create(createCompanyInput: CreateCompanyInput) {
     return this.prisma.company.create({
       data: {
-        id: createCompanyInput.id,
         name: createCompanyInput.name,
-        stores: {
-          create: createCompanyInput.stores,
-        },
       },
     });
   }
