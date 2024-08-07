@@ -11,6 +11,12 @@
 npm install
 ```
 
+## Create .env file
+
+```bash
+DATABASE_URL="postgresql://postgres:pw@localhost:5432/mydb?schema=public"
+```
+
 ## Launching the database
 
 ```bash
