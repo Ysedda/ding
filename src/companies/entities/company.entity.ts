@@ -3,7 +3,7 @@ import { Store } from 'src/stores/entities/store.entity';
 
 @ObjectType()
 export class Company {
-  @Field(() => Int)
+  @Field(() => Int, { description: 'Example field (placeholder)' })
   id: number;
 
   @Field(() => String)

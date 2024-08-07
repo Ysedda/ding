@@ -1,31 +1,52 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCompanyInput } from './dto/create-company.input';
 import { UpdateCompanyInput } from './dto/update-company.input';
-import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class CompaniesService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(createCompanyInput: CreateCompanyInput) {
-    // return this.prisma.company.create({
-    //   data: createCompanyInput,
-    // });
+    return this.prisma.company.create({
+      data: {
+        id: createCompanyInput.id,
+        name: createCompanyInput.name,
+        stores: {
+          create: createCompanyInput.stores,
+        },
+      },
+    });
   }
 
   findAll() {
-    return `This action returns all companies`;
+    return this.prisma.company.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} company`;
+    return this.prisma.company.findFirst({
+      where: {
+        id,
+      },
+    });
   }
 
   update(id: number, updateCompanyInput: UpdateCompanyInput) {
-    return `This action updates a #${id} company`;
+    return this.prisma.company.update({
+      where: {
+        id,
+      },
+      data: {
+        name: updateCompanyInput.name,
+      },
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} company`;
+    return this.prisma.company.delete({
+      where: {
+        id,
+      },
+    });
   }
 }
