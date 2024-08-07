@@ -4,9 +4,6 @@ import { Product } from 'src/products/entities/product.entity';
 
 @InputType()
 export class CreateStoreInput {
-  @Field(() => [Product])
-  products: Product[];
-
   @Field(() => Int)
   companyId: number;
 }

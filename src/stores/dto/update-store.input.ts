@@ -6,5 +6,8 @@ import { Company } from 'src/companies/entities/company.entity';
 @InputType()
 export class UpdateStoreInput extends PartialType(CreateStoreInput) {
   @Field(() => Int)
+  id: number;
+
+  @Field(() => Int)
   companyId: number;
 }
