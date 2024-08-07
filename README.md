@@ -23,6 +23,12 @@ docker run --name postgres -e POSTGRES_PASSWORD=pw -d -p 5432:5432 postgres
 npx prisma db push
 ```
 
+## Applying seeds
+
+```bash
+npx prisma db seed
+```
+
 ## Running the app
 
 ```bash
