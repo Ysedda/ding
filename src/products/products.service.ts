@@ -48,4 +48,12 @@ export class ProductsService {
       },
     });
   }
+
+  findAllByStoreId(storeId: number) {
+    return this.prisma.product.findMany({
+      where: {
+        storeId,
+      },
+    });
+  }
 }
