@@ -1,0 +1,78 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Int!
+  name: String!
+  price: Float!
+  storeId: Int!
+  store: Store!
+}
+
+type Store {
+  id: Int!
+  products: [Product!]!
+  companyId: Int!
+  company: Company!
+}
+
+type Company {
+  id: Int!
+  name: String!
+  stores: [Store!]!
+}
+
+type Query {
+  companies: [Company!]!
+  company(id: Int!): Company!
+  stores: [Store!]!
+  store(id: Int!): Store!
+  products: [Product!]!
+  product(id: Int!): Product!
+}
+
+type Mutation {
+  createCompany(createCompanyInput: CreateCompanyInput!): Company!
+  updateCompany(updateCompanyInput: UpdateCompanyInput!): Company!
+  removeCompany(id: Int!): Company!
+  createStore(createStoreInput: CreateStoreInput!): Store!
+  updateStore(updateStoreInput: UpdateStoreInput!): Store!
+  removeStore(id: Int!): Store!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product!
+}
+
+input CreateCompanyInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateCompanyInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateStoreInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateStoreInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
